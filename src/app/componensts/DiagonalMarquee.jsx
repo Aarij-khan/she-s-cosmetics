@@ -1,10 +1,9 @@
 "use client";
-
+import { Playfair_Display } from "next/font/google";
 import { motion, useAnimate } from "framer-motion";
 import { Fragment, useEffect, useRef, useState } from "react";
-
+const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 const DiagonalMarquee = ({deg}) => {
-   console.log("TCL: DiagonalMarquee -> deg", deg)
    const animation = useRef(null);
     const [box, setBox] = useState({
         isHover: false,

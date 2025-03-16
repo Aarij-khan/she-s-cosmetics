@@ -6,13 +6,13 @@ import Line from './componensts/line'
 
 function Page() {
   return (
-    <div className=''>
+    <div className='bg-white'>
       <Marquee/>
       <Banner/>
+      <Line/>
 
       {/* <DiagonalMarquee/>
       <DiagonalMarquee deg={0}/> */}
-      <Line/>
     </div>
   )
 }

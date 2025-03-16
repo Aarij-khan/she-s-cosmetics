@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/timeline";
 import { Playfair_Display } from "next/font/google";
 
+const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
+
 const items = [
     {
       id: 1,
@@ -46,16 +48,14 @@ const items = [
       description: "Excellent service! The staff was very friendly and helped me pick the best skincare products for my skin type.",
       image: "/pexel1.jpg",
     },
-  ];
-  
+];
 
-  const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 export default function Line() {
 
   return (
     <div className="py-10 flex flex-col bg-white justify-center items-center gap-10 ">
-    <h1 className={`${playfair.className} text-4xl font-bold text-pink-600`}>Our reviews</h1>
-      <Timeline className={"w-[45%] "}>
+    <h1 className={`${playfair.className} text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent`}>Our reviews</h1>
+      <Timeline className={"w-[90%] sm:w-[70%] lg:w-[45%] "}>
         {items.map((item) => (
           <TimelineItem
             key={item.id}

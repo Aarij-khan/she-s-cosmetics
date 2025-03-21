@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { toast } from "sonner";
 function Whatsappbutton() {
   const [count, setCount] = useState(false);
   useEffect(() => {
@@ -9,10 +10,17 @@ function Whatsappbutton() {
         const audio = new Audio("/ting.wav"); // Adjust the path to your sound file
         audio.play();
         setCount(true);
+        toast("Need Help? We're Here for You!", {
+          description: "Hey there! How can I assist you today? 😊",
+          action: {
+            label: "Undo",
+            onClick: () => console.log("Undo"),
+          },
+        });
       } catch (error) {
         console.log("TCL: timer -> error", error);
       }
-    }, 15000); // 3-second delay
+    }, 15000);
 
     // Clean up the timer when the component is unmounted
     return () => clearTimeout(timer);

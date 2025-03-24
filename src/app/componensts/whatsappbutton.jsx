@@ -25,8 +25,20 @@ function Whatsappbutton() {
     // Clean up the timer when the component is unmounted
     return () => clearTimeout(timer);
   }, []);
+
+  const sendToWhatsApp = () => {
+    const phoneNumber = "03142158781"; // Replace with your number
+    const message = encodeURIComponent("Hello, I want to take information about your products.");
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    if (window.innerWidth < 768) {
+      window.location.href = url; 
+    } else {
+      window.open(url, "_blank");
+    }
+  };
   return (
-    <div className="fixed bottom-8 right-6 lg:right-10 transition transform active:scale-95">
+    <div className="fixed bottom-8 right-6 lg:right-10 transition transform active:scale-95" onClick={sendToWhatsApp}>
       <div className="relative  bg-white  p-1.5 z-10 rounded-full">
         <IoLogoWhatsapp color="#25D366" size={50} />
         {count && (

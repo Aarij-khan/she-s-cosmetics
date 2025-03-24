@@ -24,10 +24,10 @@ function Page() {
     <div className='bg-white'>
       <Marquee />
       <Banner />
-      <div className='bg-white flex items-center justify-center h-[40vh]'>
+      {/* <div className='bg-white flex items-center justify-center h-[40vh]'>
         <Products data={arr} />
 
-      </div>
+      </div> */}
       <Line />
       <DiagonalMarquee/> 
       <DiagonalMarquee deg={0}/>

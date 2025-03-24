@@ -29,14 +29,14 @@ const DiagonalMarquee = ({ deg }) => {
         onMouseLeave={() => setIsHover(false)}
       >
         <div
-          className={`flex space-x-16 animate-marquee ${isHover ? "paused" : ""}`}
+          className={`flex space-x-16 animate-marquee transition-all ease-in-out duration-600 ${isHover ? "paused" : ""}`}
         >
           {Array.from({ length: 2 }).map((_, idx) => (
             <Fragment key={idx}>
               {offers.map((item, index) => (
                 <span
                   key={index}
-                  className="text-2xl lg:text-4xl text-white font-bold px-8 bg-clip-text"
+                  className="text-2xl lg:text-4xl text-white font-bold px-8  hover:bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text hover:text-transparent"
                 >
                   {item}
                 </span>

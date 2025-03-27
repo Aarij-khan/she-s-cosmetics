@@ -4,7 +4,7 @@ import { Fragment, useState } from "react";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: "700" });
 
-const DiagonalMarquee = ({ deg }) => {
+const DiagonalMarquee = ({ deg, marquees, classNames, borderprops }) => {
   const [isHover, setIsHover] = useState(false);
 
   const offers = [
@@ -22,21 +22,21 @@ const DiagonalMarquee = ({ deg }) => {
   ];
 
   return (
-    <div className="relative w-full h-[25vh] lg:h-[50vh] overflow-hidden flex items-center justify-center bg-gray-100">
+
       <div
-        className={`absolute flex space-x-16 h-[10vh] lg:h-[20vh] items-center whitespace-nowrap ${deg == 0 ? "rotate-[-5deg]" : "rotate-[6deg]"} rounded-full bg-black overflow-hidden`}
+        className={`flex space-x-16 h-[15vh] md:h-[20vh] items-center whitespace-nowrap ${deg} rounded-full ${classNames} overflow-hidden`}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
         <div
-          className={`flex space-x-16 animate-marquee transition-all ease-in-out duration-600 ${isHover ? "paused" : ""}`}
+          className={`flex  ${marquees}  transition-all ease-in-out duration-1500`}
         >
           {Array.from({ length: 2 }).map((_, idx) => (
             <Fragment key={idx}>
               {offers.map((item, index) => (
                 <span
                   key={index}
-                  className="text-2xl lg:text-4xl text-white font-bold px-8  hover:bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text hover:text-transparent"
+                  className={`text-2xl lg:text-4xl ${borderprops ? `${borderprops} font-semibold` : "text-white font-bold"}   hover:bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text hover:text-transparent`}
                 >
                   {item}
                 </span>
@@ -45,7 +45,7 @@ const DiagonalMarquee = ({ deg }) => {
           ))}
         </div>
       </div>
-    </div>
+
   );
 };
 
